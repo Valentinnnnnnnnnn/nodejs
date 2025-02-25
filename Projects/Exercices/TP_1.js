@@ -1,3 +1,4 @@
+// Exercice 1
 function Add(a, b) {
     /*
     Add two numbers
@@ -13,6 +14,8 @@ function Add(a, b) {
 
 //console.log(Add(1, 2))
 
+// --------------------------------------------------------------------------------------------
+// Exercice 2
 function findMaximum(tab) {
     /*
     Find the maximum value in an array
@@ -24,6 +27,8 @@ function findMaximum(tab) {
 
 //console.log(findMaximum([1, 2, 3, 4, 5]))
 
+// --------------------------------------------------------------------------------------------
+// Exercice 3
 function removeVoyels(str) {
     /*
     Remove all voyels from a string
@@ -35,6 +40,8 @@ function removeVoyels(str) {
 
 //console.log(removeVoyels('Hello World'))
 
+// --------------------------------------------------------------------------------------------
+// Exercice 4
 function sortStrings(tab) {
     /*
     Sort an array of strings
@@ -46,6 +53,8 @@ function sortStrings(tab) {
 
 //console.log(sortStrings(['Hello', 'World', 'Foo', 'Bar']))
 
+// --------------------------------------------------------------------------------------------
+// Exercice 5
 function numberToLetters(number) {
     /*
     Convert a number to letters
@@ -89,6 +98,8 @@ function numberToLetters(number) {
 
 //console.log(numberToLetters(550))
 
+// --------------------------------------------------------------------------------------------
+// Exercice bonus
 function determineChange(amount, availableChange = [0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 100]) {
     /*
     Determine the change to give using custom change values and the minimum number of coins
@@ -129,15 +140,51 @@ function determineChange(amount, availableChange = [0.01, 0.02, 0.05, 0.1, 0.2, 
     return 'Change not possible'
     
 }
-
+/*
 let amount = 133.65
-// console.log(`Change de ${amount} : `, determineChange(amount))
+console.log(`Change de ${amount} : `, determineChange(amount))
 
 amount = 5427.3256
-// console.log(`Change de ${amount} : `, determineChange(amount))
+console.log(`Change de ${amount} : `, determineChange(amount))
 
 amount = 12.57
-// console.log(`Change de ${amount} : `, determineChange(amount, [0.05, 0.1, 0.2, 0.5, 1]))
+console.log(`Change de ${amount} : `, determineChange(amount, [0.05, 0.1, 0.2, 0.5, 1]))
 
 amount = 0
 console.log(`Change de ${amount} : `, determineChange(amount))
+*/
+
+// --------------------------------------------------------------------------------------------
+// Exercice 6
+function getProprieties(tab, propName) {
+    /*
+    get values of a propriety in an array of objects
+    @param {object[]} tab
+    @param {string} propName
+    @return {any[]}
+    */
+    propValues = []
+    for (let obj of tab) {
+        propValues.push(obj[propName])
+    }
+    return propValues
+}
+
+//console.log(getProprieties([{name: 'John', age: 25}, {name: 'Jane', age: 30}], 'name'))
+
+// --------------------------------------------------------------------------------------------
+// Exercice 7
+function sortNumbersDecreasing(tab) {
+    /*
+    Sort an array of numbers
+    @param {number[]} tab
+    @return {number[]}
+    */
+    return tab.sort((a, b) => b - a)
+}
+
+//console.log(sortNumbersDecreasing([5, 2, 8, 1, 3]))
+
+// --------------------------------------------------------------------------------------------
+// Exercice 8
+
