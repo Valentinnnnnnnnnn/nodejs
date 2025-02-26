@@ -138,9 +138,25 @@ style G fill:#35495e
         - Export nommé : `export const nom = valeur;`
         - Import nommé : `import { nom } from './fichier.mjs'`
 
-    - **Export par défaut** - Un seul par module
+    - **Export default** - Un seul par module
         - Export par défaut : `export default nom;`
         - Import par défaut : `import nom from './fichier.mjs'`
 
     >package.json : `"type": "module"`
 
+## Classes
+Une classe comprend :
+- **Constructeur** 
+- **Méthodes**
+    - **Méthodes statiques** : `static`
+    - **Méthodes d'instance** : `this`
+- **Héritage** : `extends`
+- **super** : Appel du constructeur parent
+
+### Propriétés
+- **Accesseurs** : `get` et `set`
+- **Champs privés** : `#`
+
+## Linting
+- **ESLint** : Linter JavaScript
+    
