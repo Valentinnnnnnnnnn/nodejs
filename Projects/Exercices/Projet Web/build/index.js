@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-//import ejs from 'ejs';
 const app = (0, express_1.default)();
 app.set("view engine", "ejs");
 app.set("views", "src/views");

@@ -17,6 +17,9 @@ ES6 (publié en 2015) a introduit des changements majeurs, transformant JavaScri
 - Installer une dépendance en mode développement : `npm install <nom_package> --save-dev`
 - Installer une dépendance globalement : `npm install -g <nom_package>` -> **Déconseillé**
 - Liste des dépendances : `npm list`
+- `pnpm add -D <nom_package>` : Installer une dépendance en mode développement avec pnpm
+- `pnpm add <nom_package>` : Installer une dépendance avec pnpm
+- `pnpm install` : Installer les dépendances avec pnpm
 
 
 ## Variables
@@ -127,8 +130,8 @@ style G fill:#35495e
 
 ## Module System
 - **CommonJS** : Utilisé par Node.js
-    - `require()` : Importer un module
-    - `module.exports` : Exporter un module
+    - `require()` : Importer un module -> `const module = require('module');`
+    - `module.exports` : Exporter un module -> `module.exports = nom;`
 - **ES Modules**
     - `import` : Importer un module
     - `export` : Exporter un module
@@ -159,4 +162,48 @@ Une classe comprend :
 
 ## Linting
 - **ESLint** : Linter JavaScript
-    
+
+## Express
+Framework web minimaliste pour Node.js
+
+**Cas d'utilisation**
+- API RESTful
+- Applications en temps réel
+- Microservices
+- Backend pour Single Page Applications
+- Sites web traditionnels
+
+### Concepts clés
+- **Application** : Instance d'Express
+- **Routing** : Gestion des requêtes HTTP
+- **Middleware** : Fonctions exécutées lorsqu'une requête est reçue qui prend en argument les objets `err`, `req`, `res` et `next` (dans l'ordre)
+- **Handler** : Fonction finale appelée pour envoyer une réponse
+
+### Méthodes routage
+- **GET** : Récupérer des données
+- **POST** : Envoyer des données
+- **use** : Utilisé pour appliquer des middlewares
+
+### express.router
+- **express.Router()** : Crée un objet de type `Router`
+- Permet de définir des routes dans des fichiers séparés
+- Nécessite l'exportation de l'objet `Router`
+
+### Exemple
+```javascript
+const express = require('express');
+const app = express();
+
+app.use((req, res, next)) => {
+    req.user = { name: 'John', age: 30 };
+    next();
+});
+
+app.get('/', (req, res) => {
+    res.send(`Hello ${req.user.name}`);
+});
+
+app.listen(3000, () => {
+    console.log('Server started on port 3000');
+});
+```
