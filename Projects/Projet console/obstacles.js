@@ -30,5 +30,3 @@ export function moveObstacles(previousObstacles) {
     }
     return [...newObstacles, ...generateObstacles()]
 }
-
-// TODO : Vérifier que les obstacles permettent un passage pour le joueur

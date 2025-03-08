@@ -1,6 +1,13 @@
 import { ground, obstacles, player } from "./models.js"
 
 export const render = (playerPosition, obstaclesPositions, score) => {
+    /*
+    Render the game board with the player, obstacles, score and life
+    @param {Number} playerPosition
+    @param {Array} obstaclesPositions
+    @param {Object} score
+    @return {String} rendered board
+    */
     let currentGround = ground.map(row => [...row])
     
     // Place player

@@ -6,6 +6,9 @@ import { isPlayerDead, movePlayer } from "./player.js"
 import keypress from 'keypress';
 
 export function startGame() {
+    /* 
+    Initialize the game and start the game loop
+    */
     let score = { life: 5, score: 0 }
     let playerPosition = 12
     let obstaclesPositions = []
@@ -15,11 +18,15 @@ export function startGame() {
     keypress(process.stdin)
 
     gameLoop(score, playerPosition, obstaclesPositions)
-    
-    console.log('end')
 }
 
 function gameLoop(score, playerPosition, obstaclesPositions) {
+    /*
+    Main game loop
+    @param {Object} score
+    @param {Number} playerPosition
+    @param {Array} obstaclesPositions
+    */
     let lastInput = { name: null };
     process.stdin.on('keypress', function(ch, key) {
         lastInput = key;
@@ -40,7 +47,8 @@ function gameLoop(score, playerPosition, obstaclesPositions) {
         if (score.life <= 0) {
             clearInterval(intervalId);
             clearInterval(intervalIdKey);
-            console.log('Game Over');
+            console.log('Game Over - Score : ' + score.score);
+            process.exit();
         }
     }, 100);
 

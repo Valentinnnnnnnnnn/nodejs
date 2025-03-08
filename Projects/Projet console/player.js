@@ -14,6 +14,13 @@ export function isPlayerDead(playerPosition, obstaclesPositions, boardLastRowNum
 }
 
 export function movePlayer(input, playerPosition, boardRowLength) {
+    /*
+    Move the player on the board based on the input
+    @param {String} input
+    @param {Number} playerPosition
+    @param {Number} boardRowLength
+    @return {Number} new player position
+    */
     if (input === 'q' && playerPosition - 1 > 0) { 
         playerPosition--
     }

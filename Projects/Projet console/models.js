@@ -4,7 +4,7 @@ export const ground = [
 ]
 
 export const obstacles = [
-    "🪨 ", "🌳", "🌲", "🚗", "🚶"
+    "🪨", "🌳", "🌲", "🚶"
 ]
 
 export const player = '🏎️'
