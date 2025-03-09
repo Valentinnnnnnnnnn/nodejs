@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTC</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>Crack The Code</h1>
+
+    <p><strong>Essais restants :</strong> <%= attemptsLeft %></p>
+
+    <% let won = guesses.length > 0 && guesses[guesses.length - 1].correct === codeLength %>
+
+    <% if (won) { %>
+        <h2>🎉 Félicitations ! Vous avez trouvé le code ! 🎉</h2>
+        <a href="/">Recommencer</a>
+    <% } else if (attemptsLeft > 0) { %>
+        <form action="/play" method="POST">
+            <label for="guess">Entrez un code :</label>
+            <input type="text" id="guess" name="guess" 
+                pattern="\d{<%= codeLength %>}"
+                maxlength="<%= codeLength %>"
+                title="Le code doit être composé de <%= codeLength %> chiffres"
+                required>
+            <button type="submit">Essayer</button>
+        </form>
+    <% } else { %>
+        <h2>❌ Partie terminée ! Vous avez épuisé tous vos essais.</h2>
+        <a href="/">Recommencer</a>
+    <% } %>
+
+    <hr>
+
+    <h2>Historique des tentatives :</h2>
+    <% if (guesses.length > 0) { %>
+        <ul>
+            <% guesses.forEach((g, index) => { %>
+                <li>Tentative <%= index + 1 %> : <%= g.input %> → ✅ Correct : <%= g.correct %>, 🔄 Mal placés : <%= g.misplaced %></li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>Aucune tentative encore.</p>
+    <% } %>
+</body>
+</html>
